@@ -1,0 +1,23 @@
+{
+  "name": "apollo-server-lambda-postgres",
+  "version": "1.0.0",
+  "description": "An Apollo Server GraphQL API that uses Postgres as a database and is deployed to AWS Lambda",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "amalv",
+  "license": "MIT",
+  "dependencies": {
+    "@apollo/server": "^4.9.4",
+    "@as-integrations/aws-lambda": "^3.1.0",
+    "graphql": "^16.8.1"
+  },
+  "devDependencies": {
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "semantic-release": "^22.0.5",
+    "serverless-plugin-typescript": "^2.1.5",
+    "typescript": "^5.2.2"
+  }
+}
