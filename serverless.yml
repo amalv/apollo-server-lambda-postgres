@@ -15,7 +15,7 @@ functions:
       DB_NAME: ${param:DB_NAME}
       DB_USERNAME: ${param:DB_USERNAME}
       DB_PASSWORD: ${param:DB_PASSWORD}
-      DB_SSL_CERT: ${file(./certs/global-bundle.pem)}
+      DB_SSL_CERT: /var/task/certs/global-bundle.pem
     # Make sure your file path is correct!
     # (e.g., if your file is in the root folder use server.graphqlHandler )
     # The format is: <FILENAME>.<HANDLER>
