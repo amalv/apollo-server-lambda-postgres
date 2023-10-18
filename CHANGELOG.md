@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.0.0...v1.1.0) (2023-10-18)
+
+
+### Features
+
+* Add DB_SSL_CERT to .env_sample and update environment for serverless parameters ([1735427](https://github.com/amalv/apollo-server-lambda-postgres/commit/1735427ee9ac0a5982870095608232f1e4fb1ae3))
+
 # 1.0.0 (2023-10-18)
 
 
