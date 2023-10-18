@@ -11,7 +11,9 @@
   "dependencies": {
     "@apollo/server": "^4.9.4",
     "@as-integrations/aws-lambda": "^3.1.0",
-    "graphql": "^16.8.1"
+    "dotenv": "^16.3.1",
+    "graphql": "^16.8.1",
+    "pg": "^8.11.3"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.3",

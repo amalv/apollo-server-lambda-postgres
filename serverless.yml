@@ -1,3 +1,5 @@
+org: amalv
+app: apollo-lambda
 service: apollo-lambda
 provider:
   name: aws
@@ -6,6 +8,9 @@ provider:
     cors: true
 functions:
   graphql:
+    environment:
+      NODE_ENV: production
+      DB_SSL_CERT: /var/task/certs/global-bundle.pem
     # Make sure your file path is correct!
     # (e.g., if your file is in the root folder use server.graphqlHandler )
     # The format is: <FILENAME>.<HANDLER>
@@ -17,6 +22,10 @@ functions:
       - httpApi:
           path: /
           method: GET
+configValidationMode: error
 # Omit the following lines if you aren't using TS!
 plugins:
   - serverless-plugin-typescript
+package:
+  include:
+    - certs/**
