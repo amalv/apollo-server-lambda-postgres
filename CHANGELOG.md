@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.1.0...v1.1.1) (2023-10-18)
+
+
+### Bug Fixes
+
+* update DB_SSL_CERT path in serverless.yml ([f980663](https://github.com/amalv/apollo-server-lambda-postgres/commit/f98066327f6e779539fe163fd68d3d52be03cc29))
+
 # [1.1.0](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.0.0...v1.1.0) (2023-10-18)
 
 
