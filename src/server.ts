@@ -6,8 +6,8 @@ import {
 import { config } from "dotenv";
 import { Client } from "pg";
 import * as fs from "fs";
-import { AppDataSource } from "./data-source";
-import { Book } from "./entity/Book";
+import { dataSource } from "./data-source";
+import { User } from "./entity/User";
 
 interface SslOptions {
   rejectUnauthorized: boolean;
@@ -33,22 +33,6 @@ if (!process.env.DB_PORT || isNaN(parseInt(process.env.DB_PORT))) {
   throw new Error("Invalid DB port");
 }
 
-// Create a new PostgreSQL client
-const client = new Client({
-  user: process.env.DB_USERNAME,
-  password: process.env.DB_PASSWORD,
-  host: process.env.DB_ENDPOINT,
-  database: process.env.DB_NAME,
-  port: process.env.DB_PORT,
-  ssl: {
-    rejectUnauthorized: true,
-    ca: sslCertificate || undefined,
-  },
-});
-
-// Connect to the database
-client.connect();
-
 const typeDefs = `#graphql
   type Book {
     id: ID!
@@ -59,10 +43,17 @@ const typeDefs = `#graphql
     rating: Float!
     ratingsCount: Int!
   }
+  type User {
+    id: ID!
+    firstName: String!
+    lastName: String!
+    age: Int!
+  }
   type Query {
     hello: String!
     dbInfo: String!
     books: [Book!]!
+    users: [User!]!
   }
 `;
 
@@ -105,9 +96,45 @@ const resolvers = {
       }
     },
     books: async () => {
-      const savedBooks = await AppDataSource.manager.find(Book);
-      console.log("All books from the db: ", savedBooks);
-      return savedBooks;
+      const env = process.env;
+
+      const sslOptions: SslOptions = {
+        rejectUnauthorized: false,
+        ca: env.DB_SSL_CERT,
+      };
+
+      const client = new Client({
+        user: env.DB_USERNAME,
+        password: env.DB_PASSWORD,
+        host: env.DB_ENDPOINT,
+        database: env.DB_NAME,
+        port: env.DB_PORT,
+        ssl: sslOptions,
+      });
+
+      try {
+        await client.connect();
+
+        const result: QueryResult = await client.query("SELECT * FROM book");
+
+        await client.end();
+
+        return result.rows;
+      } catch (error) {
+        console.error("Error fetching books:", error);
+        throw error;
+      }
+    },
+    users: async () => {
+      try {
+        const dataSourceInstance = await dataSource;
+        const userRepository = dataSourceInstance.getRepository(User);
+        const users = await userRepository.find();
+        return users;
+      } catch (error) {
+        console.error("Error fetching users:", error);
+        throw error;
+      }
     },
   },
 };

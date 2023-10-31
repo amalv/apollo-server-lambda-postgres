@@ -8,3 +8,4 @@ temp/
 node_modules/
 .serverless/
 .env
+src/data-source.ts
