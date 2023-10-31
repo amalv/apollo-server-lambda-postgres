@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.2.0...v1.3.0) (2023-10-31)
+
+
+### Features
+
+* integrate TypeORM with serverless ([2bfd763](https://github.com/amalv/apollo-server-lambda-postgres/commit/2bfd763315094285380d3f371bd87f1de84a69ac))
+
 # [1.2.0](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.1.1...v1.2.0) (2023-10-19)
 
 
