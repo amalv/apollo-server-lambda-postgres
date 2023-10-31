@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.1.1...v1.2.0) (2023-10-19)
+
+
+### Features
+
+* add tests, dbInfo query, and types ([f68f113](https://github.com/amalv/apollo-server-lambda-postgres/commit/f68f1131f04ccd5b1f82f8881d82523a45deadd4))
+
 ## [1.1.1](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.1.0...v1.1.1) (2023-10-18)
 
 
