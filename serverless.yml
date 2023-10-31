@@ -4,17 +4,18 @@ service: apollo-lambda
 provider:
   name: aws
   runtime: nodejs18.x
+  stage: ${opt:stage, 'local'} # default to 'local' if no stage is provided
   httpApi:
     cors: true
 functions:
   graphql:
     environment:
       NODE_ENV: production
-      DB_ENDPOINT: ${param:DB_ENDPOINT}
-      DB_PORT: ${param:DB_PORT}
-      DB_NAME: ${param:DB_NAME}
-      DB_USERNAME: ${param:DB_USERNAME}
-      DB_PASSWORD: ${param:DB_PASSWORD}
+      DB_ENDPOINT: ${param:DB_ENDPOINT, env:DB_ENDPOINT}
+      DB_PORT: ${param:DB_PORT, env:DB_PORT}
+      DB_NAME: ${param:DB_NAME, env:DB_NAME}
+      DB_USERNAME: ${param:DB_USERNAME, env:DB_USERNAME}
+      DB_PASSWORD: ${param:DB_PASSWORD, env:DB_PASSWORD}
       DB_SSL_CERT: /var/task/certs/global-bundle.pem
     # Make sure your file path is correct!
     # (e.g., if your file is in the root folder use server.graphqlHandler )
@@ -28,10 +29,13 @@ functions:
           path: /
           method: GET
 configValidationMode: error
-# Omit the following lines if you aren't using TS!
 plugins:
-  - serverless-plugin-typescript
+  - serverless-dotenv-plugin
   - serverless-offline
+  - serverless-plugin-typescript
+custom:
+  dotenv:
+    path: ./.env.${self:provider.stage}
 package:
   include:
     - certs/**

@@ -14,11 +14,11 @@ const requiredEnvVars = [
   "DB_SSL_CERT",
 ];
 
-validateEnvVars(requiredEnvVars);
-
 if (process.env.NODE_ENV !== "production") {
   config();
 }
+
+validateEnvVars(requiredEnvVars);
 
 const options: DataSourceOptions = {
   type: "postgres",
@@ -27,7 +27,7 @@ const options: DataSourceOptions = {
   username: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
-  synchronize: true,
+  synchronize: false,
   logging: false,
   entities: [Book, User],
   migrations: [],

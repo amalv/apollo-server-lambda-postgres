@@ -20,6 +20,26 @@ After cloning the project, navigate to the project directory and run the followi
 npm install
 ```
 
+## Environment Configuration
+
+This project uses two environment files for local and production environments:
+
+.env.local: This file should contain your local Postgres database credentials. It is used when running the project locally.
+
+.env.production: This file should contain your production Postgres database credentials. It is used when deploying the project to production.
+
+Both files should have the following structure:
+
+```bash
+DB_ENDPOINT=
+DB_PORT=
+DB_NAME=
+DB_USERNAME=
+DB_PASSWORD=
+```
+
+You can use the .env_sample file as a template for creating these files. Remember to never commit your .env.local and .env.production files to the repository. They should be kept private and secure.
+
 ## Local Development
 
 To start the local development server, run the following command:
@@ -54,24 +74,10 @@ For TypeScript, `ts-jest` is used to allow Jest to understand TypeScript syntax.
 
 ## Deployment
 
-To deploy the API, you can use the `serverless deploy` command. This will deploy the API to AWS Lambda.
-
-Before deploying the API, you need to create a `.env` file with the following variables:
-
-```env
-DB_ENDPOINT=
-DB_PORT=
-DB_NAME=
-DB_USERNAME=
-DB_PASSWORD=
-```
-
-You can use the `.env_sample` file as a template for creating the `.env` file.
-
-After deploying the API, you can make a sample query using the following command:
+To deploy the project to production, use the following command:
 
 ```bash
-serverless invoke local -f graphql -p query.json --env NODE_ENV=development
+npx serverless deploy --stage production` command. This will deploy the API to AWS Lambda.
 ```
 
 ## Features

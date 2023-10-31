@@ -8,4 +8,5 @@ tmp/
 temp/
 node_modules/
 .serverless/
-.env
+.env.local
+.env.production
