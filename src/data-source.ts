@@ -3,11 +3,22 @@ import { DataSource, DataSourceOptions } from "typeorm";
 import { User } from "./entity/User";
 import { Book } from "./entity/Book";
 import { config } from "dotenv";
+import { validateEnvVars } from "./utils/env";
+
+const requiredEnvVars = [
+  "DB_PORT",
+  "DB_ENDPOINT",
+  "DB_NAME",
+  "DB_USERNAME",
+  "DB_PASSWORD",
+  "DB_SSL_CERT",
+];
+
+validateEnvVars(requiredEnvVars);
 
 if (process.env.NODE_ENV !== "production") {
   config();
 }
-console.log(process.env.DB_USERNAME);
 
 const options: DataSourceOptions = {
   type: "postgres",
