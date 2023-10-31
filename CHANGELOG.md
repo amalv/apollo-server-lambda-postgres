@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.3.0...v1.4.0) (2023-10-31)
+
+
+### Features
+
+* add User resolver to GraphQL schema ([bcc41d5](https://github.com/amalv/apollo-server-lambda-postgres/commit/bcc41d5d4c64b17d14395ef1791efa57a2ff4b75))
+
 # [1.3.0](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.2.0...v1.3.0) (2023-10-31)
 
 
