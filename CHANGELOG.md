@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.5.0...v1.6.0) (2023-10-31)
+
+
+### Features
+
+* enhance environment configuration and documentation ([07d77a9](https://github.com/amalv/apollo-server-lambda-postgres/commit/07d77a98cab823b9112d6860cf9eb3f3f23f773e))
+
 # [1.5.0](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.4.0...v1.5.0) (2023-10-31)
 
 
