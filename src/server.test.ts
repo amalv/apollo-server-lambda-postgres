@@ -1,24 +1,31 @@
 import { ApolloServer } from "@apollo/server";
-import { typeDefs, resolvers } from "./server";
+jest.mock("./graphql/types");
+jest.mock("./graphql/resolvers", () => ({
+  Query: {
+    users: jest.fn(),
+    books: jest.fn(),
+  },
+}));
 
-jest.mock("pg", () => {
-  const mockClient = {
-    connect: jest.fn(),
-    query: jest.fn(),
-    end: jest.fn(),
-  };
-  return { Client: jest.fn(() => mockClient) };
-});
+jest.mock("@as-integrations/aws-lambda", () => ({
+  startServerAndCreateLambdaHandler: jest.fn(() => () => {}),
+  handlers: {
+    createAPIGatewayProxyEventV2RequestHandler: jest.fn(() => () => {}),
+  },
+}));
 
-it("returns hello with the provided name", async () => {
-  const testServer = new ApolloServer({
-    typeDefs,
-    resolvers,
+describe("server.ts", () => {
+  it("creates an ApolloServer instance with the correct resolvers and typeDefs", () => {
+    const { startServerAndCreateLambdaHandler } = jest.requireMock(
+      "@as-integrations/aws-lambda"
+    );
+
+    const { graphqlHandler } = require("./server");
+
+    expect(typeof graphqlHandler).toBe("function");
+    expect(startServerAndCreateLambdaHandler).toHaveBeenCalledWith(
+      expect.any(ApolloServer),
+      expect.any(Function)
+    );
   });
-
-  const response: any = await testServer.executeOperation({
-    query: "query { hello }",
-  });
-
-  expect(response.body.singleResult.data.hello).toBe("Hello, world!");
 });

@@ -19,7 +19,8 @@
     "pg": "^8.4.0",
     "pg-hstore": "^2.3.4",
     "reflect-metadata": "^0.1.13",
-    "typeorm": "0.3.17"
+    "typeorm": "0.3.17",
+    "winston": "^3.11.0"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.3",
