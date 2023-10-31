@@ -3,6 +3,7 @@
 .build/
 certs/
 coverage/
+logs/
 tmp/
 temp/
 node_modules/
