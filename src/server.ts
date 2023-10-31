@@ -37,7 +37,7 @@ const typeDefs = `#graphql
   type Book {
     id: ID!
     title: String!
-    author: String!
+    author: String! 
     publicationDate: String!
     image: String
     rating: Float!
