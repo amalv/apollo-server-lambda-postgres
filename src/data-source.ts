@@ -14,9 +14,9 @@ const requiredEnvVars = [
   "DB_SSL_CERT",
 ];
 
-if (process.env.NODE_ENV !== "production") {
-  config();
-}
+const envPath =
+  process.env.NODE_ENV === "production" ? ".env.production" : ".env.local";
+config({ path: envPath });
 
 validateEnvVars(requiredEnvVars);
 
@@ -27,7 +27,7 @@ const options: DataSourceOptions = {
   username: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
-  synchronize: false,
+  synchronize: process.env.NODE_ENV !== "production",
   logging: false,
   entities: [Book, User],
   migrations: [],
