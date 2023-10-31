@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.4.0...v1.5.0) (2023-10-31)
+
+
+### Features
+
+* add data-source.ts to handle TypeORM DataSource ([7565812](https://github.com/amalv/apollo-server-lambda-postgres/commit/756581244429da6fa2f1691085356b3ac69fb2f4))
+
 # [1.4.0](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.3.0...v1.4.0) (2023-10-31)
 
 
