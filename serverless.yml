@@ -31,6 +31,7 @@ configValidationMode: error
 # Omit the following lines if you aren't using TS!
 plugins:
   - serverless-plugin-typescript
+  - serverless-offline
 package:
   include:
     - certs/**
