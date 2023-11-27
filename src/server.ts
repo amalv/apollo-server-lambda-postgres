@@ -29,6 +29,7 @@ try {
   server = new ApolloServer({
     typeDefs,
     resolvers,
+    introspection: true,
   });
 } catch (error) {
   logger.error("Error starting Apollo Server:", error);
