@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.7.0...v1.8.0) (2023-11-27)
+
+
+### Features
+
+* enable GraphQL instrospection in Apollo Server ([976a3eb](https://github.com/amalv/apollo-server-lambda-postgres/commit/976a3eb9d5322b494455432a4a783902277a9d36))
+
 # [1.7.0](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.6.0...v1.7.0) (2023-10-31)
 
 
