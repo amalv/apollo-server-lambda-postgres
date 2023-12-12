@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.8.0...v1.9.0) (2023-12-12)
+
+
+### Features
+
+* add support for book fixtures configuration ([b77130f](https://github.com/amalv/apollo-server-lambda-postgres/commit/b77130fee357c4402d1e643be2d1db6c2841de92))
+
 # [1.8.0](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.7.0...v1.8.0) (2023-11-27)
 
 
