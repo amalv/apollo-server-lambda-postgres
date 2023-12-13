@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "ts-node src/index.ts",
+    "start": "npx serverless offline",
+    "load-fixtures": "ts-node src/scripts/loadBookFixtures.ts",
+    "fetch-covers": "ts-node src/scripts/fetchBookCovers.ts",
     "typeorm": "typeorm-ts-node-commonjs"
   },
   "author": "amalv",

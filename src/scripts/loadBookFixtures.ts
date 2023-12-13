@@ -1,8 +1,8 @@
 import { faker } from "@faker-js/faker";
-import { AppDataSource } from "./data-source";
-import { User } from "./entity/User";
-import { Book } from "./entity/Book";
-import { booksData } from "./fixtures/books";
+import { AppDataSource } from "../data-source";
+import { User } from "../entity/User";
+import { Book } from "../entity/Book";
+import booksData from "../fixtures/booksData";
 
 const initializeBooks = async (bookData) => {
   const book = new Book();

@@ -1,4 +1,4 @@
-export const booksData = [
+[
   {
     "title": "Dune",
     "author": "Frank Herbert",

@@ -1,0 +1,12 @@
+{
+  "1984": "http://books.google.com/books/content?id=kb7dDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+  "Dune": "http://books.google.com/books/content?id=Q5HCDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+  "Fahrenheit 451": "http://books.google.com/books/content?id=OYtkbGl2j0sC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+  "A Wrinkle in Time": "http://books.google.com/books/content?id=r119-dYq0mwC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+  "Brave New World": "http://books.google.com/books/content?id=TIJ5EAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+  "The War of the Worlds": "http://books.google.com/books/content?id=v8eNCgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+  "The Time Machine": "http://books.google.com/books/content?id=f3H6SMzlQQwC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+  "Starship Troopers": "http://books.google.com/books/content?id=PuzsBAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+  "The Hunger Games": "http://books.google.com/books/content?id=Yz8Fnw0PlEQC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+  "Ender's Game": "http://books.google.com/books/content?id=Ojqi8KbWuLwC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+}
