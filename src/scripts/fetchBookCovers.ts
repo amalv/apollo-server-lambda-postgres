@@ -1,6 +1,6 @@
 import https from "https";
 import { writeFile } from "fs/promises";
-import { booksData } from "../fixtures/books";
+import booksData from "../fixtures/booksData";
 
 const fetchBookCover = (book) =>
   new Promise((resolve, reject) => {

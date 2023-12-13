@@ -11,7 +11,6 @@ const requiredEnvVars = [
   "DB_NAME",
   "DB_USERNAME",
   "DB_PASSWORD",
-  "DB_SSL_CERT",
 ];
 
 const envPath =
