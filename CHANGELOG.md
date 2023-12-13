@@ -1,3 +1,10 @@
+# [1.11.0](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.10.0...v1.11.0) (2023-12-13)
+
+
+### Features
+
+* add production fixtures loading command and refactor logging path ([e6dd54d](https://github.com/amalv/apollo-server-lambda-postgres/commit/e6dd54d69c7fcce5068634c6228429c70e0c253a))
+
 # [1.10.0](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.9.0...v1.10.0) (2023-12-13)
 
 
