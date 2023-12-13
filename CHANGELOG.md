@@ -1,3 +1,10 @@
+# [1.10.0](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.9.0...v1.10.0) (2023-12-13)
+
+
+### Features
+
+* **scripts:** reorganize scripts, improve fixtures, add fetch covers script ([b886316](https://github.com/amalv/apollo-server-lambda-postgres/commit/b886316c365891f964f46913bd67c609be06fae6))
+
 # [1.9.0](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.8.0...v1.9.0) (2023-12-12)
 
 
