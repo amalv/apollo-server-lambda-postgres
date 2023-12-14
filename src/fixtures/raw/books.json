@@ -78,5 +78,85 @@
     "image": "",
     "rating": 65,
     "ratingsCount": 900000
+  },
+  {
+    "title": "Neuromancer",
+    "author": "William Gibson",
+    "publicationDate": "1984-07-01",
+    "image": "",
+    "rating": 90,
+    "ratingsCount": 800000
+  },
+  {
+    "title": "Snow Crash",
+    "author": "Neal Stephenson",
+    "publicationDate": "1992-06-02",
+    "image": "",
+    "rating": 92,
+    "ratingsCount": 700000
+  },
+  {
+    "title": "Foundation",
+    "author": "Isaac Asimov",
+    "publicationDate": "1951-05-01",
+    "image": "",
+    "rating": 85,
+    "ratingsCount": 600000
+  },
+  {
+    "title": "The Left Hand of Darkness",
+    "author": "Ursula K. Le Guin",
+    "publicationDate": "1969-06-01",
+    "image": "",
+    "rating": 88,
+    "ratingsCount": 550000
+  },
+  {
+    "title": "Hyperion",
+    "author": "Dan Simmons",
+    "publicationDate": "1989-05-26",
+    "image": "",
+    "rating": 87,
+    "ratingsCount": 500000
+  },
+  {
+    "title": "The Martian",
+    "author": "Andy Weir",
+    "publicationDate": "2011-02-15",
+    "image": "",
+    "rating": 94,
+    "ratingsCount": 900000
+  },
+  {
+    "title": "The Expanse",
+    "author": "James S.A. Corey",
+    "publicationDate": "2011-06-15",
+    "image": "",
+    "rating": 89,
+    "ratingsCount": 850000
+  },
+  {
+    "title": "Altered Carbon",
+    "author": "Richard K. Morgan",
+    "publicationDate": "2002-02-28",
+    "image": "",
+    "rating": 91,
+    "ratingsCount": 750000
+  },
+  {
+    "title": "Red Mars",
+    "author": "Kim Stanley Robinson",
+    "publicationDate": "1992-11-01",
+    "image": "",
+    "rating": 86,
+    "ratingsCount": 650000
+  },
+  {
+    "title": "Old Man's War",
+    "author": "John Scalzi",
+    "publicationDate": "2005-12-14",
+    "image": "",
+    "rating": 84,
+    "ratingsCount": 700000
   }
 ]

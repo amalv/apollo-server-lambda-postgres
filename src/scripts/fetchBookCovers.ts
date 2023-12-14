@@ -18,7 +18,7 @@ const fetchBookCover = (book) =>
             const coverUrl =
               JSON.parse(data).items[0]?.volumeInfo?.imageLinks?.thumbnail;
             if (coverUrl) {
-              resolve({ [book.title]: coverUrl });
+              resolve({ [book.title]: coverUrl || "No cover available" });
             }
           });
         }
@@ -32,7 +32,7 @@ const fetchBookCovers = async () => {
   const bookCovers = await Promise.all(booksData.map(fetchBookCover));
   const output = Object.assign({}, ...bookCovers);
   await writeFile(
-    "./src/fixtures/bookCovers.json",
+    "./src/fixtures/raw/bookCovers.json",
     JSON.stringify(output, null, 2)
   );
 };
