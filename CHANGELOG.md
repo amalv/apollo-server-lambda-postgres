@@ -1,3 +1,10 @@
+# [1.12.0](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.11.0...v1.12.0) (2023-12-14)
+
+
+### Features
+
+* add book covers and update book data ([4bb20b0](https://github.com/amalv/apollo-server-lambda-postgres/commit/4bb20b069910a59a1a975be3a4b629bc23e4a859))
+
 # [1.11.0](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.10.0...v1.11.0) (2023-12-13)
 
 
