@@ -1,3 +1,10 @@
+# [1.13.0](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.12.0...v1.13.0) (2023-12-17)
+
+
+### Features
+
+* refactor book query to filter by title ([ed29b15](https://github.com/amalv/apollo-server-lambda-postgres/commit/ed29b1591f9217544252b579a3328fe12526b60e))
+
 # [1.12.0](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.11.0...v1.12.0) (2023-12-14)
 
 
