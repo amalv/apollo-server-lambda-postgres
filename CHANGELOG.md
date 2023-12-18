@@ -1,3 +1,10 @@
+# [1.14.0](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.13.0...v1.14.0) (2023-12-18)
+
+
+### Features
+
+* refactor book data loading and fetching ([f61fa58](https://github.com/amalv/apollo-server-lambda-postgres/commit/f61fa5854fd266e35704fae6ff1120ae688dd4b5))
+
 # [1.13.0](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.12.0...v1.13.0) (2023-12-17)
 
 
