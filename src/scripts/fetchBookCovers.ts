@@ -1,6 +1,6 @@
 import https from "https";
 import { writeFile } from "fs/promises";
-import booksData from "../fixtures/booksData";
+import books from "../fixtures/raw/books.json";
 
 const fetchBookCover = (book) =>
   new Promise((resolve, reject) => {
@@ -29,7 +29,7 @@ const fetchBookCover = (book) =>
   });
 
 const fetchBookCovers = async () => {
-  const bookCovers = await Promise.all(booksData.map(fetchBookCover));
+  const bookCovers = await Promise.all(books.map(fetchBookCover));
   const output = Object.assign({}, ...bookCovers);
   await writeFile(
     "./src/fixtures/raw/bookCovers.json",

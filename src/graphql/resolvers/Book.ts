@@ -7,9 +7,17 @@ export const BookResolvers = {
       try {
         const dataSourceInstance = await dataSource;
         const bookRepository = dataSourceInstance.getRepository(Book);
-        const books = await bookRepository.find({
-          where: args.title ? { title: args.title } : {},
-        });
+        let books;
+        if (args.title) {
+          books = await bookRepository
+            .createQueryBuilder("book")
+            .where("LOWER(book.title) LIKE :title", {
+              title: `%${args.title.toLowerCase()}%`,
+            })
+            .getMany();
+        } else {
+          books = await bookRepository.find();
+        }
         return books;
       } catch (error) {
         console.error("Error fetching books:", error);
