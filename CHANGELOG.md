@@ -1,3 +1,10 @@
+# [1.15.0](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.14.0...v1.15.0) (2023-12-21)
+
+
+### Features
+
+* add pagination to books query ([c932693](https://github.com/amalv/apollo-server-lambda-postgres/commit/c932693c62e9440cf31d7d4b9807340b74a619de))
+
 # [1.14.0](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.13.0...v1.14.0) (2023-12-18)
 
 
