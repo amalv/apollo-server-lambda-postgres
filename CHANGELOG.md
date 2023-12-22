@@ -1,3 +1,10 @@
+## [1.16.1](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.16.0...v1.16.1) (2023-12-22)
+
+
+### Bug Fixes
+
+* update search query to use OR instead of AND ([f1f2fa7](https://github.com/amalv/apollo-server-lambda-postgres/commit/f1f2fa7e9bb38583a6090e5597472ccbd914d851))
+
 # [1.16.0](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.15.0...v1.16.0) (2023-12-22)
 
 
