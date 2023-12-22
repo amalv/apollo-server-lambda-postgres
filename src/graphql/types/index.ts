@@ -10,6 +10,6 @@ export const typeDefs = `#graphql
     hello: String!
     dbInfo: String!
     users: [User!]!
-    books(title: String, cursor: String, limit: Int): BooksPage!
+    books(author: String, title: String, cursor: String, limit: Int): BooksPage!
   }
 `;
