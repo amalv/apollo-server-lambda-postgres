@@ -23,7 +23,7 @@ export const BookResolvers = {
         }
 
         if (args.author) {
-          queryBuilder.andWhere("LOWER(book.author) LIKE :author", {
+          queryBuilder.orWhere("LOWER(book.author) LIKE :author", {
             author: `%${args.author.toLowerCase()}%`,
           });
         }
