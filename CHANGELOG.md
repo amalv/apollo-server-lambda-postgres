@@ -1,3 +1,10 @@
+# [1.16.0](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.15.0...v1.16.0) (2023-12-22)
+
+
+### Features
+
+* refactor book query to include author search and change default limit to 50 ([c3981b1](https://github.com/amalv/apollo-server-lambda-postgres/commit/c3981b11c553f5a5336e9c0411973a4927719ed1))
+
 # [1.15.0](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.14.0...v1.15.0) (2023-12-21)
 
 
