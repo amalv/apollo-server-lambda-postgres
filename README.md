@@ -24,9 +24,9 @@ npm install
 
 This project uses two environment files for local and production environments:
 
-.env.local: This file should contain your local Postgres database credentials. It is used when running the project locally.
+`.env.local`: This file should contain your local Postgres database credentials. It is used when running the project locally.
 
-.env.production: This file should contain your production Postgres database credentials. It is used when deploying the project to production.
+`.env.production`: This file should contain your production Postgres database credentials. It is used when deploying the project to production.
 
 Both files should have the following structure:
 
@@ -77,8 +77,10 @@ For TypeScript, `ts-jest` is used to allow Jest to understand TypeScript syntax.
 To deploy the project to production, use the following command:
 
 ```bash
-npx serverless deploy --stage production` command. This will deploy the API to AWS Lambda.
+npx serverless deploy --stage production`
 ```
+
+This will deploy the API to AWS Lambda.
 
 ## Features
 
@@ -92,4 +94,4 @@ npx serverless deploy --stage production` command. This will deploy the API to A
 📈 Winston logger for comprehensive logging\
 🔧 Jest for unit testing and coverage\
 🔄 Database migrations to manage database changes\
-🔀 TypeScript for static typing\
+🔀 TypeScript for static typing

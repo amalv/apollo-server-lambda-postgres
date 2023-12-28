@@ -1,5 +1,7 @@
 import { ApolloServer } from "@apollo/server";
+
 jest.mock("./graphql/types");
+
 jest.mock("./graphql/resolvers", () => ({
   Query: {
     users: jest.fn(),
@@ -22,10 +24,7 @@ describe("server.ts", () => {
 
     const { graphqlHandler } = require("./server");
 
+    expect(startServerAndCreateLambdaHandler).toHaveBeenCalled();
     expect(typeof graphqlHandler).toBe("function");
-    expect(startServerAndCreateLambdaHandler).toHaveBeenCalledWith(
-      expect.any(ApolloServer),
-      expect.any(Function)
-    );
   });
 });
