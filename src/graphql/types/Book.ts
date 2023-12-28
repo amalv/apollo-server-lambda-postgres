@@ -7,5 +7,6 @@ export const BookType = `
     image: String
     rating: Float!
     ratingsCount: Int!
+    favorites: [Favorite!]!
   }
 `;

@@ -2,6 +2,7 @@ import "reflect-metadata";
 import { DataSource, DataSourceOptions } from "typeorm";
 import { User } from "./entity/User";
 import { Book } from "./entity/Book";
+import { Favorite } from "./entity/Favorite";
 import { config } from "dotenv";
 import { validateEnvVars } from "./utils/env";
 
@@ -28,7 +29,7 @@ const options: DataSourceOptions = {
   database: process.env.DB_NAME,
   synchronize: process.env.NODE_ENV !== "production",
   logging: false,
-  entities: [Book, User],
+  entities: [Book, User, Favorite],
   migrations: [],
   subscribers: [],
   ssl: true,

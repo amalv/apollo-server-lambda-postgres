@@ -6,6 +6,7 @@ import {
 import { resolvers } from "./graphql/resolvers";
 import { typeDefs } from "./graphql/types";
 import winston from "winston";
+import jwt from "jsonwebtoken";
 
 const logger = winston.createLogger({
   level: "info",
@@ -24,9 +25,15 @@ if (process.env.NODE_ENV !== "production") {
   );
 }
 
+interface MyContext {
+  userId?: string;
+  lambdaEvent?: any;
+  lambdaContext?: any;
+}
+
 let server: ApolloServer | undefined;
 try {
-  server = new ApolloServer({
+  server = new ApolloServer<MyContext>({
     typeDefs,
     resolvers,
     introspection: true,
@@ -38,7 +45,28 @@ try {
 
 const graphqlHandler = startServerAndCreateLambdaHandler(
   server,
-  handlers.createAPIGatewayProxyEventV2RequestHandler()
+  handlers.createAPIGatewayProxyEventV2RequestHandler(),
+  {
+    context: async ({ event, context }) => {
+      const token = event.headers.authorization || "";
+      let userId;
+      if (token && token.startsWith("Bearer ")) {
+        const jwtToken = token.slice(7, token.length).trimLeft();
+        try {
+          const decoded = jwt.verify(jwtToken, process.env.JWT_SECRET);
+          userId = decoded.sub;
+        } catch (err) {
+          logger.error("Invalid token");
+        }
+      }
+
+      return {
+        userId,
+        lambdaEvent: event,
+        lambdaContext: context,
+      };
+    },
+  }
 );
 
 export { graphqlHandler };
