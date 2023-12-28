@@ -1,3 +1,10 @@
+# [1.17.0](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.16.1...v1.17.0) (2023-12-28)
+
+
+### Features
+
+* Add Favorite entity, resolver, and relations ([118b0dd](https://github.com/amalv/apollo-server-lambda-postgres/commit/118b0dd34dca6c7ddde710566dcba4a35884da2c))
+
 ## [1.16.1](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.16.0...v1.16.1) (2023-12-22)
 
 
