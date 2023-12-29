@@ -1,53 +1,24 @@
 import { dataSource } from "../../data-source";
 import { Favorite } from "../../entity/Favorite";
-import { User } from "../../entity/User";
-import { Book } from "../../entity/Book";
+import { addFavorite, removeFavorite } from "../../services";
 
 export const FavoriteResolvers = {
   Mutation: {
-    favoriteBook: async (_, { bookId }, context) => {
-      try {
-        const userId = context.userId;
-
-        if (!userId) {
-          throw new Error("User ID not provided");
-        }
-
-        if (!bookId) {
-          throw new Error("Book ID not provided");
-        }
-
-        const dataSourceInstance = await dataSource;
-        const userRepository = dataSourceInstance.getRepository(User);
-        const bookRepository = dataSourceInstance.getRepository(Book);
-        const favoriteRepository = dataSourceInstance.getRepository(Favorite);
-
-        let user = await userRepository.findOne({ where: { id: userId } });
-        const book = await bookRepository.findOne({ where: { id: bookId } });
-        if (!book) {
-          throw new Error("Book not found");
-        }
-
-        if (!user) {
-          user = userRepository.create({ auth0Id: userId });
-          await userRepository.save(user);
-        }
-
-        const favorite = new Favorite();
-        favorite.user = user;
-        favorite.book = book;
-
-        const savedFavorite = await favoriteRepository.save(favorite);
-        console.log("Saved favorite:", savedFavorite);
-        return savedFavorite;
-      } catch (error) {
-        console.error("Error favoriting book:", error);
-        throw error;
-      }
+    addFavorite: async (_, { bookId }, context) => {
+      const userId = context.userId;
+      const savedFavorite = await addFavorite(userId, bookId);
+      console.log("Saved favorite:", savedFavorite);
+      return savedFavorite;
+    },
+    removeFavorite: async (_, { bookId }, context) => {
+      const userId = context.userId;
+      const result = await removeFavorite(userId, bookId);
+      console.log("Removed favorite:", result);
+      return result;
     },
   },
   Query: {
-    favoriteBooks: async (_, { userId }, context) => {
+    getFavorites: async (_, { userId }, context) => {
       try {
         const dataSourceInstance = await dataSource;
         const favoriteRepository = dataSourceInstance.getRepository(Favorite);

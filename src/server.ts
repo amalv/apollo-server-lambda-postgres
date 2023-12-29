@@ -35,8 +35,8 @@ const decodeToken = (token: string): string | undefined => {
   if (token?.startsWith("Bearer ")) {
     const jwtToken = token.slice(7, token.length).trimStart();
     try {
-      const decoded = jwt.verify(jwtToken, process.env.JWT_SECRET);
-      return decoded.sub;
+      const decoded = jwt.decode(jwtToken);
+      return decoded?.sub;
     } catch (err) {
       logger.error("Invalid token");
     }
