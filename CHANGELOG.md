@@ -1,3 +1,10 @@
+# [1.18.0](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.17.0...v1.18.0) (2023-12-29)
+
+
+### Features
+
+* enhance User and Favorite Resolvers and Update Fixtures ([9d378ce](https://github.com/amalv/apollo-server-lambda-postgres/commit/9d378ce0328272bc1ea37796f549eae2de49edbf))
+
 # [1.17.0](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.16.1...v1.17.0) (2023-12-28)
 
 
