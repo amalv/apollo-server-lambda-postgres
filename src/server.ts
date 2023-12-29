@@ -8,6 +8,12 @@ import { typeDefs } from "./graphql/types";
 import winston from "winston";
 import jwt from "jsonwebtoken";
 
+interface GraphQLContext {
+  userId?: string;
+  lambdaEvent?: any;
+  lambdaContext?: any;
+}
+
 const logger = winston.createLogger({
   level: "info",
   format: winston.format.json(),
@@ -25,15 +31,21 @@ if (process.env.NODE_ENV !== "production") {
   );
 }
 
-interface MyContext {
-  userId?: string;
-  lambdaEvent?: any;
-  lambdaContext?: any;
-}
+const decodeToken = (token: string): string | undefined => {
+  if (token?.startsWith("Bearer ")) {
+    const jwtToken = token.slice(7, token.length).trimStart();
+    try {
+      const decoded = jwt.verify(jwtToken, process.env.JWT_SECRET);
+      return decoded.sub;
+    } catch (err) {
+      logger.error("Invalid token");
+    }
+  }
+};
 
 let server: ApolloServer | undefined;
 try {
-  server = new ApolloServer<MyContext>({
+  server = new ApolloServer<GraphQLContext>({
     typeDefs,
     resolvers,
     introspection: true,
@@ -49,16 +61,7 @@ const graphqlHandler = startServerAndCreateLambdaHandler(
   {
     context: async ({ event, context }) => {
       const token = event.headers.authorization || "";
-      let userId;
-      if (token && token.startsWith("Bearer ")) {
-        const jwtToken = token.slice(7, token.length).trimLeft();
-        try {
-          const decoded = jwt.verify(jwtToken, process.env.JWT_SECRET);
-          userId = decoded.sub;
-        } catch (err) {
-          logger.error("Invalid token");
-        }
-      }
+      const userId = decodeToken(token);
 
       return {
         userId,

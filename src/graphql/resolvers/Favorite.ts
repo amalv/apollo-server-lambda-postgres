@@ -5,22 +5,32 @@ import { Book } from "../../entity/Book";
 
 export const FavoriteResolvers = {
   Mutation: {
-    favoriteBook: async (_, { userId, bookId }, context) => {
+    favoriteBook: async (_, { bookId }, context) => {
       try {
-        console.log("User ID:", userId);
-        console.log("Book ID:", bookId);
-        if (!userId || !bookId) {
-          throw new Error("User ID or Book ID not provided");
+        const userId = context.userId;
+
+        if (!userId) {
+          throw new Error("User ID not provided");
         }
+
+        if (!bookId) {
+          throw new Error("Book ID not provided");
+        }
+
         const dataSourceInstance = await dataSource;
         const userRepository = dataSourceInstance.getRepository(User);
         const bookRepository = dataSourceInstance.getRepository(Book);
         const favoriteRepository = dataSourceInstance.getRepository(Favorite);
 
-        const user = await userRepository.findOne({ where: { id: userId } });
+        let user = await userRepository.findOne({ where: { id: userId } });
         const book = await bookRepository.findOne({ where: { id: bookId } });
-        if (!user || !book) {
-          throw new Error("User or Book not found");
+        if (!book) {
+          throw new Error("Book not found");
+        }
+
+        if (!user) {
+          user = userRepository.create({ auth0Id: userId });
+          await userRepository.save(user);
         }
 
         const favorite = new Favorite();
