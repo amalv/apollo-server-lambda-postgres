@@ -1,3 +1,10 @@
+# [1.19.0](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.18.0...v1.19.0) (2023-12-29)
+
+
+### Features
+
+* **favoriteService:** add getFavorites, addFavorite, and removeFavorite operations ([0eb75e7](https://github.com/amalv/apollo-server-lambda-postgres/commit/0eb75e73513b3e2f3ed3b3b2bbf7b9b305a40992))
+
 # [1.18.0](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.17.0...v1.18.0) (2023-12-29)
 
 
