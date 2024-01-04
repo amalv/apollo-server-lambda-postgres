@@ -1,3 +1,10 @@
+# [1.20.0](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.19.0...v1.20.0) (2024-01-04)
+
+
+### Features
+
+* add FixtureDataSource with synchronize option ([15d4941](https://github.com/amalv/apollo-server-lambda-postgres/commit/15d49413aaf27bf0673bfbbabde54cd2e0f8bca1))
+
 # [1.19.0](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.18.0...v1.19.0) (2023-12-29)
 
 
