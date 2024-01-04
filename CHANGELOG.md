@@ -1,3 +1,10 @@
+# [1.22.0](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.21.0...v1.22.0) (2024-01-04)
+
+
+### Features
+
+* set lib and target in tsconfig to es2020 ([9a8f724](https://github.com/amalv/apollo-server-lambda-postgres/commit/9a8f72458a24f4db603c3d6c35291e5156748ddf))
+
 # [1.21.0](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.20.0...v1.21.0) (2024-01-04)
 
 
