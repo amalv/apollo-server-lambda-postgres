@@ -8,5 +8,6 @@ export const BookType = `
     rating: Float!
     ratingsCount: Int!
     favorites: [Favorite!]!
+    isFavorited: Boolean!
   }
 `;
