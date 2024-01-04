@@ -40,6 +40,13 @@ const options: DataSourceOptions = {
   },
 };
 
+const fixtureOptions: DataSourceOptions = {
+  ...options,
+  synchronize: true,
+};
+
+export const FixtureDataSource = new DataSource(fixtureOptions);
+
 export const AppDataSource = new DataSource(options);
 
 const initializeDataSource = async () => {

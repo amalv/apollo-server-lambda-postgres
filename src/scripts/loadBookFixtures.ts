@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker";
-import { AppDataSource } from "../data-source";
+import { FixtureDataSource } from "../data-source";
 import { User } from "../entity/User";
 import { Book } from "../entity/Book";
 import { Favorite } from "../entity/Favorite";
@@ -19,28 +19,28 @@ const initializeBooks = async (bookData) => {
   book.image = bookData.image || faker.image.url({ width: 150, height: 150 });
   book.rating = bookData.rating;
   book.ratingsCount = bookData.ratingsCount;
-  return AppDataSource.manager.save(book);
+  return FixtureDataSource.manager.save(book);
 };
 
 const initializeUsers = async () => {
   const user = new User();
   user.auth0Id = "1234567890";
-  return AppDataSource.manager.save(user);
+  return FixtureDataSource.manager.save(user);
 };
 
 const initializeFavorites = async (user, book) => {
   const favorite = new Favorite();
   favorite.userId = user.id;
   favorite.bookId = book.id;
-  return AppDataSource.manager.save(favorite);
+  return FixtureDataSource.manager.save(favorite);
 };
 
-AppDataSource.initialize()
+FixtureDataSource.initialize()
   .then(async () => {
     console.log("Dropping and recreating the tables...");
-    await AppDataSource.manager.query('TRUNCATE "favorite" CASCADE');
-    await AppDataSource.manager.query('TRUNCATE "user", "book" CASCADE');
-    await AppDataSource.synchronize(true);
+    await FixtureDataSource.manager.query('TRUNCATE "favorite" CASCADE');
+    await FixtureDataSource.manager.query('TRUNCATE "user", "book" CASCADE');
+    await FixtureDataSource.synchronize(true);
 
     console.log("Inserting new books into the database...");
     const books = await Promise.all(booksData.map(initializeBooks));
