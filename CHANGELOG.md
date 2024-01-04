@@ -1,3 +1,10 @@
+# [1.21.0](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.20.0...v1.21.0) (2024-01-04)
+
+
+### Features
+
+* **Book:** add isFavorited to GraphQL schema and resolver ([750f299](https://github.com/amalv/apollo-server-lambda-postgres/commit/750f299386d9eeb16a1b197ddc4e57470c750d96))
+
 # [1.20.0](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.19.0...v1.20.0) (2024-01-04)
 
 
