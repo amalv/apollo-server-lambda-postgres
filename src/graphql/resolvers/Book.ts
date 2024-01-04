@@ -43,36 +43,34 @@ export const BookResolvers = {
           });
           if (user) {
             userId = user.id;
-            queryBuilder.leftJoinAndSelect(
-              Favorite,
-              "favorite",
-              "favorite.bookId = book.id AND favorite.userId = :userId",
-              { userId }
-            );
           }
         }
+
+        queryBuilder.leftJoinAndSelect("book.favorites", "favorite");
 
         books = await queryBuilder
           .orderBy("book.id", "ASC")
           .skip(skip)
           .take(take)
-          .getRawMany();
+          .getMany();
 
         const newCursor = skip + books.length;
 
         return {
           cursor: newCursor,
           books: books.map((book) => {
-            const isFavorited = book.favorite_id !== null;
+            const isFavorited = userId
+              ? book.favorites.some((favorite) => favorite.userId === userId)
+              : false;
 
             return {
-              id: book.book_id,
-              title: book.book_title,
-              author: book.book_author,
-              publicationDate: book.book_publicationDate,
-              image: book.book_image,
-              rating: book.book_rating,
-              ratingsCount: book.book_ratingsCount,
+              id: book.id,
+              title: book.title,
+              author: book.author,
+              publicationDate: book.publicationDate,
+              image: book.image,
+              rating: book.rating,
+              ratingsCount: book.ratingsCount,
               isFavorited,
             };
           }),
