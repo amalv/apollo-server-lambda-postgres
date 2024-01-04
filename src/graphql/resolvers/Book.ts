@@ -1,6 +1,5 @@
 import { dataSource } from "../../data-source";
 import { Book } from "../../entity/Book";
-import { Favorite } from "../../entity/Favorite";
 import { User } from "../../entity/User";
 
 export const BookResolvers = {
