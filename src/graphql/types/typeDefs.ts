@@ -11,8 +11,6 @@ export const typeDefs = `#graphql
   type Query {
     hello: String!
     dbInfo: String!
-    user: User
-    users: [User!]!
     books(author: String, title: String, cursor: String, limit: Int): BooksPage!
   }
   type Mutation {
