@@ -1,3 +1,10 @@
+# [1.23.0](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.22.0...v1.23.0) (2024-01-05)
+
+
+### Features
+
+* migrate from TypeORM to Drizzle ORM ([868e2a4](https://github.com/amalv/apollo-server-lambda-postgres/commit/868e2a4dc41e669627de79d4ffd27e4ea0c9d688))
+
 # [1.22.0](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.21.0...v1.22.0) (2024-01-04)
 
 
