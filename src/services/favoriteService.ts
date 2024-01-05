@@ -1,49 +1,52 @@
-import { Favorite } from "../entity/Favorite";
-import { User } from "../entity/User";
-import { Book } from "../entity/Book";
-import { dataSource } from "../data-source";
+import { db } from "../db";
+import { user, book, favorite } from "../schema";
+import { eq, and } from "drizzle-orm";
 
 const setup = async (userId: string, bookId: string) => {
-  const dataSourceInstance = await dataSource;
-  const userRepository = dataSourceInstance.getRepository(User);
-  const bookRepository = dataSourceInstance.getRepository(Book);
-  const favoriteRepository = dataSourceInstance.getRepository(Favorite);
+  const userResult = await db
+    .select()
+    .from(user)
+    .where(eq(user.auth0Id, userId))
+    .execute();
+  const bookResult = await db
+    .select()
+    .from(book)
+    .where(eq(book.id, Number(bookId)))
+    .execute();
 
-  const user = await userRepository.findOne({ where: { auth0Id: userId } });
-  const book = await bookRepository.findOne({ where: { id: Number(bookId) } });
-
-  return { userRepository, bookRepository, favoriteRepository, user, book };
+  return { user: userResult[0], book: bookResult[0] };
 };
 
-export const addFavorite = async (
-  userId: string,
-  bookId: string
-): Promise<Favorite> => {
-  const { userRepository, bookRepository, favoriteRepository, user, book } =
-    await setup(userId, bookId);
+export const addFavorite = async (userId: string, bookId: string) => {
+  const { user: existingUser, book } = await setup(userId, bookId);
 
   if (!book) {
     throw new Error("Book not found");
   }
 
-  let userToSave = user;
+  let userToSave = existingUser;
   if (!userToSave) {
-    userToSave = userRepository.create({ auth0Id: userId });
-    await userRepository.save(userToSave);
+    const userInsertResult = await db
+      .insert(user)
+      .values({ auth0Id: userId })
+      .execute();
+    userToSave = userInsertResult[0];
   }
 
-  const favorite = new Favorite();
-  favorite.user = userToSave;
-  favorite.book = book;
-
-  return favoriteRepository.save(favorite);
+  const favoriteInsertResult = await db
+    .insert(favorite)
+    .values({ userId: userToSave.id, bookId: Number(bookId) })
+    .returning()
+    .execute();
+  return {
+    id: favoriteInsertResult[0].id,
+    user: userToSave,
+    book: book,
+  };
 };
 
-export const removeFavorite = async (
-  userId: string,
-  bookId: string
-): Promise<boolean> => {
-  const { favoriteRepository, user, book } = await setup(userId, bookId);
+export const removeFavorite = async (userId: string, bookId: string) => {
+  const { user, book } = await setup(userId, bookId);
 
   if (!user) {
     throw new Error("User not found");
@@ -53,12 +56,20 @@ export const removeFavorite = async (
     throw new Error("Book not found");
   }
 
-  const favorite = await favoriteRepository.findOne({ where: { user, book } });
+  const favoriteResult = await db
+    .select()
+    .from(favorite)
+    .where(
+      and(eq(favorite.userId, user.id), eq(favorite.bookId, Number(bookId)))
+    )
+    .execute();
 
-  if (!favorite) {
+  if (!favoriteResult[0]) {
     throw new Error("Favorite not found");
   }
 
-  await favoriteRepository.remove(favorite);
-  return true;
+  await db
+    .delete(favorite)
+    .where(eq(favorite.id, favoriteResult[0].id))
+    .execute();
 };

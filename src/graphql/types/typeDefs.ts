@@ -14,7 +14,6 @@ export const typeDefs = `#graphql
     user: User
     users: [User!]!
     books(author: String, title: String, cursor: String, limit: Int): BooksPage!
-    getFavorites(userId: ID!): [Favorite!]!
   }
   type Mutation {
     addFavorite(bookId: ID!): Favorite 

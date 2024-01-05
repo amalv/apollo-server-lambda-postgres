@@ -6,7 +6,6 @@ export const resolvers = {
   Query: {
     ...UserResolvers.Query,
     ...BookResolvers.Query,
-    ...FavoriteResolvers.Query,
   },
   Mutation: {
     ...FavoriteResolvers.Mutation,
