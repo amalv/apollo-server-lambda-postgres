@@ -7,7 +7,6 @@
     "test": "jest",
     "start": "npx serverless offline",
     "load-fixtures": "ts-node src/scripts/loadBookFixtures.ts",
-    "load-fixtures-drizzle": "ts-node src/scripts/loadBookFixturesDrizzle.ts",
     "load-fixtures:production": "NODE_ENV=production ts-node src/scripts/loadBookFixtures.ts",
     "fetch-covers": "ts-node src/scripts/fetchBookCovers.ts",
     "typeorm": "typeorm-ts-node-commonjs"
@@ -25,7 +24,6 @@
     "pg": "^8.11.3",
     "pg-hstore": "^2.3.4",
     "reflect-metadata": "^0.1.13",
-    "typeorm": "^0.3.17",
     "winston": "^3.11.0"
   },
   "devDependencies": {
