@@ -1,5 +1,6 @@
 import { BookResolvers } from "./Book";
 import { FavoriteResolvers } from "./Favorite";
+import { AdminResolvers } from "./Admin";
 
 export const resolvers = {
   Query: {
@@ -7,5 +8,6 @@ export const resolvers = {
   },
   Mutation: {
     ...FavoriteResolvers.Mutation,
+    ...AdminResolvers.Mutation,
   },
 };

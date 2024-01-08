@@ -16,4 +16,5 @@ export const typeDefs = `#graphql
   type Mutation {
     addFavorite(bookId: ID!): Favorite 
     removeFavorite(bookId: ID!): Boolean
+    loadFixtures(adminToken: String!): Boolean
   }`;

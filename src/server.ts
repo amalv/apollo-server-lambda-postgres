@@ -36,7 +36,9 @@ const decodeToken = (token: string): string | undefined => {
     const jwtToken = token.slice(7, token.length).trimStart();
     try {
       const decoded = jwt.decode(jwtToken);
-      return decoded?.sub;
+      if (typeof decoded !== "string" && decoded?.sub) {
+        return decoded.sub;
+      }
     } catch (err) {
       logger.error("Invalid token");
     }
