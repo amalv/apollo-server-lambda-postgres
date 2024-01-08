@@ -7,6 +7,7 @@ import { resolvers } from "./graphql/resolvers";
 import { typeDefs } from "./graphql/types";
 import winston from "winston";
 import jwt from "jsonwebtoken";
+import jwksClient from "jwks-rsa";
 
 interface GraphQLContext {
   userId?: string;
@@ -31,18 +32,40 @@ if (process.env.NODE_ENV !== "production") {
   );
 }
 
-const decodeToken = (token: string): string | undefined => {
-  if (token?.startsWith("Bearer ")) {
-    const jwtToken = token.slice(7, token.length).trimStart();
-    try {
-      const decoded = jwt.decode(jwtToken);
-      if (typeof decoded !== "string" && decoded?.sub) {
-        return decoded.sub;
-      }
-    } catch (err) {
-      logger.error("Invalid token");
+function getKey(header, callback) {
+  const client = jwksClient({
+    jwksUri: `https://dev-udel1dobwtbe8ips.us.auth0.com/.well-known/jwks.json`,
+  });
+  client.getSigningKey(header.kid, function (err, key) {
+    const signingKey = key.getPublicKey();
+
+    callback(null, signingKey);
+  });
+}
+
+const decodeToken = (token: string): Promise<string | undefined> => {
+  return new Promise((resolve, reject) => {
+    if (token?.startsWith("Bearer ")) {
+      const jwtToken = token.slice(7, token.length).trimStart();
+      jwt.verify(
+        jwtToken,
+        getKey,
+        { algorithms: ["RS256"] },
+        function (err, decoded) {
+          if (err) {
+            logger.error("Invalid token");
+            reject(new Error("Invalid token"));
+          } else if (typeof decoded !== "string" && decoded?.sub) {
+            resolve(decoded.sub);
+          } else {
+            resolve(undefined);
+          }
+        }
+      );
+    } else {
+      resolve(undefined);
     }
-  }
+  });
 };
 
 let server: ApolloServer | undefined;
@@ -63,7 +86,7 @@ const graphqlHandler = startServerAndCreateLambdaHandler(
   {
     context: async ({ event, context }) => {
       const token = event.headers.authorization || "";
-      const userId = decodeToken(token);
+      const userId = await decodeToken(token);
 
       return {
         userId,
