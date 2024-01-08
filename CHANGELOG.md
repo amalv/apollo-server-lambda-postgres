@@ -1,3 +1,10 @@
+## [1.25.1](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.25.0...v1.25.1) (2024-01-08)
+
+
+### Bug Fixes
+
+* Move @faker-js/faker from devDependencies to dependencies ([828d006](https://github.com/amalv/apollo-server-lambda-postgres/commit/828d006c5d841de5a0eb2275ecce78749e898af2))
+
 # [1.25.0](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.24.0...v1.25.0) (2024-01-08)
 
 
