@@ -1,3 +1,10 @@
+# [1.25.0](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.24.0...v1.25.0) (2024-01-08)
+
+
+### Features
+
+* add AdminResolvers with loadFixtures mutation ([3882c1a](https://github.com/amalv/apollo-server-lambda-postgres/commit/3882c1aa10e66c641264a333f7e52b8bf7115684))
+
 # [1.24.0](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.23.0...v1.24.0) (2024-01-05)
 
 
