@@ -1,3 +1,11 @@
+# [1.26.0](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.25.1...v1.26.0) (2024-01-10)
+
+
+### Features
+
+* add support for verifying access token using jwksUri ([cd63c28](https://github.com/amalv/apollo-server-lambda-postgres/commit/cd63c28f8f0a5c2cef6886b72b2105a5d7bbf738))
+* **scripts:** add load-fixtures:staging script and support .env.staging in db.ts ([ba15c93](https://github.com/amalv/apollo-server-lambda-postgres/commit/ba15c93644af5e1ac7c0637edbb99541356aa96c))
+
 ## [1.25.1](https://github.com/amalv/apollo-server-lambda-postgres/compare/v1.25.0...v1.25.1) (2024-01-08)
 
 
