@@ -9,4 +9,5 @@ temp/
 node_modules/
 .serverless/
 .env.local
+.env.staging
 .env.production
