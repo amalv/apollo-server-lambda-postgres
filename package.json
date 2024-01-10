@@ -7,6 +7,7 @@
     "test": "jest",
     "start": "npx serverless offline",
     "load-fixtures": "ts-node src/scripts/loadBookFixtures.ts",
+    "load-fixtures:staging": "NODE_ENV=staging ts-node src/scripts/loadBookFixtures.ts",
     "load-fixtures:production": "NODE_ENV=production ts-node src/scripts/loadBookFixtures.ts",
     "fetch-covers": "ts-node src/scripts/fetchBookCovers.ts",
     "typeorm": "typeorm-ts-node-commonjs"

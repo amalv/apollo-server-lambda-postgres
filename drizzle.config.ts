@@ -1,8 +1,13 @@
 import { config } from "dotenv";
 import type { Config } from "drizzle-kit";
 
-const envPath =
-  process.env.NODE_ENV === "production" ? ".env.production" : ".env.local";
+const envPaths = {
+  production: ".env.production",
+  staging: ".env.staging",
+  development: ".env.local",
+};
+
+const envPath = envPaths[process.env.NODE_ENV] || ".env.local";
 
 config({ path: envPath });
 
