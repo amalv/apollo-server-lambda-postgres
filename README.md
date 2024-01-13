@@ -1,6 +1,6 @@
 # Serverless GraphQL API with Apollo, AWS Lambda, and Postgres
 
-This project is a practical demonstration of a serverless GraphQL API built with Apollo Server, deployed on AWS Lambda, and using Postgres as a database. TypeORM is used for data manipulation and interaction with Postgres. While the application serves as a book listing API, the primary focus is to illustrate the effective use of this technology stack.
+This project is a practical demonstration of a serverless GraphQL API built with Apollo Server, deployed on AWS Lambda, and using Postgres as a database. Drizzle ORM is used for data manipulation and interaction with Postgres. While the application serves as a book listing API, the primary focus is to illustrate the effective use of this technology stack.
 
 ## Prerequisites
 
@@ -50,7 +50,7 @@ npx serverless offline
 
 This will start the server at `http://localhost:3000`. The available endpoints will be displayed in the terminal.
 
-When the application starts, the `initializeDataSource` function in `data-source.ts` is called. This function is responsible for setting up the connection to the Postgres database and initializing the entities. It uses TypeORM's `initialize` method to establish the connection and synchronize the database schema based on the defined entities.
+When the application starts, the `initializeDataSource` function in `data-source.ts` is called. This function is responsible for setting up the connection to the Postgres database and initializing the entities. It uses Drizzle ORM's `initialize` method to establish the connection and synchronize the database schema based on the defined entities.
 
 ## Invoking Function Locally
 
@@ -85,7 +85,7 @@ This will deploy the API to AWS Lambda.
 ## Features
 
 🚀 Deploy an Apollo Server GraphQL API to AWS Lambda\
-🐘 Use Postgres as a database with TypeORM for efficient data manipulation\
+🐘 Use Postgres as a database with Drizzle ORM for efficient data manipulation\
 🔒 Secure database connection using environment variables\
 🔍 Sample query command provided for easy testing\
 👥 Handle user data and their interactions with books\
